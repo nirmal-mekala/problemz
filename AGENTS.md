@@ -33,6 +33,7 @@ When given a plain-English problem statement, follow this exact structure:
 - Each test file should validate both implementations:
   - `working.ts` should currently fail at least one test.
   - `solution.ts` should pass all tests.
+- Aim for due diligence on edge cases, but avoid exhaustive testing. A sane middle ground is enough (similar to HackerRank-style tests): cover the main paths plus a handful of meaningful edge cases without trying to enumerate every possible scenario.
 
 ## Adding a New Problem (Checklist)
 1) Create `easy|medium|hard/<problem-name>/`.
