@@ -7,15 +7,16 @@ This repository stores coding problems and solutions in TypeScript with automate
 When given a plain-English problem statement, follow this exact structure:
 - Choose difficulty: `easy`, `medium`, or `hard`.
 - Create a directory under that tier using kebab-case (e.g. `easy/two-sum`).
-- Add three files:
+- Add four files:
   - `working.ts` — intentionally incomplete or incorrect so tests fail.
   - `solution.ts` — correct implementation that passes tests.
   - `*.test.ts` — tests that exercise both `working.ts` and `solution.ts`.
+  - `README.md` — problem statement and examples.
 - Keep exports consistent between `working.ts` and `solution.ts` so tests can import both.
 
 ## Project Structure
 - `easy/`, `medium/`, `hard/` — problem directories by difficulty.
-- Each problem directory contains `working.ts`, `solution.ts`, and a `*.test.ts` file.
+- Each problem directory contains `working.ts`, `solution.ts`, `*.test.ts`, and `README.md`.
 
 ## Build, Test, and Development Commands
 - `npm test` — run all Vitest tests (expected to fail until `working.ts` is solved).
@@ -40,4 +41,5 @@ When given a plain-English problem statement, follow this exact structure:
 2) Add `working.ts` with a stub or incorrect logic.
 3) Add `solution.ts` with correct logic.
 4) Add `<problem-name>.test.ts` with shared cases for both implementations.
-5) Ensure `npm test` fails before the working solution is fixed.
+5) Add `README.md` with the problem description and examples.
+6) Ensure `npm test` fails before the working solution is fixed.
