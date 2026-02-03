@@ -1,3 +1,7 @@
 export function sumOfArray(nums: number[]): number {
-  return 0;
+	let result = 0;
+	for (const num of nums) {
+		result += num;
+	}
+	return result;
 }
