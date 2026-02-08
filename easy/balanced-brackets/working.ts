@@ -3,13 +3,12 @@ export function isBalancedBrackets(input: string): boolean {
 	const lastChar = (charArr: string[]) => charArr[charArr.length - 1];
 
 	const bracketMap = new Map<string, string>([
-		["{", "}"],
+		["[", "]"],
 		["(", ")"],
 		["{", "}"],
 	]);
 	const isOpening = (char: string) => bracketMap.has(char);
-	// const closingBrackets = new Set([")", "}", "]"])
-	//
+
 	let result = true;
 
 	for (let i = 0; i < input.length; i++) {
