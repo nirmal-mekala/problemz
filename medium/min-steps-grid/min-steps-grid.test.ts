@@ -68,7 +68,7 @@ const cases = [
 ];
 
 describe("minStepsInGrid (working)", () => {
-  it.each(cases)("fails until implemented: %s", ({ grid, start, end, expected }) => {
+  it.each(cases)("returns correct steps: %s", ({ grid, start, end, expected }) => {
     expect(working(grid, start, end)).toBe(expected);
   });
 });

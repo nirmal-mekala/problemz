@@ -1,5 +1,4 @@
 export function longestUniqueSubstringLength(input: string): number {
-	console.log(`INPUT: ${input}`);
 	let maxLength = 0;
 	const seen = new Map<string, number>();
 	let start = 0;

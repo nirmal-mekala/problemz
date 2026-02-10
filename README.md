@@ -4,7 +4,7 @@ TypeScript coding problems with tests. Each problem lives in a difficulty folder
 
 - `working.ts` — intentionally incomplete or incorrect implementation
 - `solution.ts` — correct implementation
-- `*.test.ts` — shared tests that must fail for `working.ts` and pass for `solution.ts`
+- `*.test.ts` — shared tests that assert correct behavior for both `working.ts` and `solution.ts`
 
 Note: tests and solutions are AI-generated, so take both with a grain of salt.
 
@@ -15,6 +15,6 @@ Note: tests and solutions are AI-generated, so take both with a grain of salt.
 
 ## Running tests
 
-- `npm test` — run all Vitest tests (expected to fail until `working.ts` is solved)
+- `npm test` — run all Vitest tests (may fail until `working.ts` is solved)
 - `npm run test:watch` — run tests in watch mode
 - `npm run typecheck` — type-check without emitting files

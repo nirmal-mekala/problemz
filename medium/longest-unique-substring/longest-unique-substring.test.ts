@@ -14,7 +14,7 @@ const cases = [
 ];
 
 describe("longestUniqueSubstringLength (working)", () => {
-  it.each(cases)("fails until implemented: %o", ({ input, expected }) => {
+  it.each(cases)("returns correct length: %o", ({ input, expected }) => {
     expect(working(input)).toBe(expected);
   });
 });

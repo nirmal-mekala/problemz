@@ -10,7 +10,7 @@ const cases = [
 ];
 
 describe("sumOfArray (working)", () => {
-  it.each(cases)("fails until implemented: %o", ({ input, expected }) => {
+  it.each(cases)("returns the correct sum: %o", ({ input, expected }) => {
     expect(workingSum(input)).toBe(expected);
   });
 });
