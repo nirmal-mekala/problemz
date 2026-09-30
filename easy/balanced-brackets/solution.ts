@@ -24,5 +24,3 @@ export function isBalancedBrackets(input: string): boolean {
 
 	return stack.length === 0;
 }
-
-console.log(isBalancedBrackets("{}"));
