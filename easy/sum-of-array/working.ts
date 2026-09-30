@@ -5,3 +5,5 @@ export function sumOfArray(nums: number[]): number {
 	}
 	return result;
 }
+
+console.log(sumOfArray([1, 2, 3]));
