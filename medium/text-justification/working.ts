@@ -1,46 +1,52 @@
 export function justifyText(words: string[], k: number): string[] {
-	const lines: string[][] = [[]];
-	const latestLine = (lines: string[][]) => lines[lines.length - 1];
+	const lines = [];
+	let currentLine: string[] = [];
 
-	const canAddWord = ({ word }: { word: string }) => {
-		let currentLength: number = 0;
-		const last = latestLine(lines);
-		last?.forEach((word, i) => {
-			const padding = i === last.length - 1 ? 0 : 1;
-			currentLength += word.length + padding;
-		});
-		return word.length + currentLength <= k;
+	const wordCanFitOnLine = (word: string) => {
+		// currentSpaces = numberOfWords - 1
+		// totalWordLenghtOnCurrentLine + (numberOfWords) newWordLength + 1 < k
+		const currentNumberOfWords = currentLine.length;
+		const currentSpaces = currentNumberOfWords - 1;
+		const totalWordCharactersOnCurrentLine = currentLine.join("").length;
+		const totalCharactersOnCurrentLine =
+			totalWordCharactersOnCurrentLine + currentSpaces;
+		const hypotheticalAdditionalCharacters = word.length + 1;
+		return totalCharactersOnCurrentLine + hypotheticalAdditionalCharacters <= k;
 	};
 
 	for (let i = 0; i < words.length; i++) {
 		const word = words[i];
-		if (canAddWord({ word })) {
-			if (lines.length > 0) {
-				lines[lines.length - 1].push(word);
-			} else {
-				lines[0] = [word];
-			}
+		if (wordCanFitOnLine(word)) {
+			currentLine.push(word);
 		} else {
-			lines.push([word]);
+			lines.push(currentLine);
+			currentLine = [word];
 		}
 	}
 
-	return lines.map((line) => {
-		const totalCharLength = line.reduce((acc, curr) => {
-			return acc + curr.length;
-		}, 0);
-		const guaranteedSpaces =
-			line.length > 1
-				? Math.floor((k - totalCharLength) / (line.length - 1))
-				: k - totalCharLength;
-		const totalExtraSpaces =
-			line.length > 1 ? (k - totalCharLength) % (line.length - 1) : 0;
-		return line.reduce((acc, curr, i) => {
-			const extraSpaces = i < totalExtraSpaces ? 1 : 0;
-			const notLast = i < line.length - 1;
-			const only = line.length === 1;
-			const spaces = notLast || only ? guaranteedSpaces + extraSpaces : 0;
-			return acc + curr + " ".repeat(spaces);
-		}, "");
-	});
+	lines.push(currentLine);
+
+	const transformWordArrToStrLine = (wordArr: string[]) => {
+		if (wordArr.length === 1) {
+			return wordArr[0].concat(" ".repeat(k - wordArr[0].length));
+		}
+		const numberOfSpaces = wordArr.length - 1;
+		const spacesToDistribute = k - wordArr.join("").length;
+		const guaranteedSpaces = Math.floor(spacesToDistribute / numberOfSpaces);
+		const numberOfWordsThatGetExtraSpaces = spacesToDistribute % numberOfSpaces;
+		let strLineResult = "";
+		for (let i = 0; i < wordArr.length; i++) {
+			const word = wordArr[i];
+			if (i === 0) {
+				strLineResult += word;
+			} else if (i <= numberOfWordsThatGetExtraSpaces) {
+				strLineResult += " ".repeat(guaranteedSpaces + 1).concat(word);
+			} else {
+				strLineResult += " ".repeat(guaranteedSpaces).concat(word);
+			}
+		}
+		return strLineResult;
+	};
+
+	return lines.map(transformWordArrToStrLine);
 }
