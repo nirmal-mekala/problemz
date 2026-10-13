@@ -1,29 +1,33 @@
 export class ListNode {
-  public next: ListNode | null;
+	public next: ListNode | null;
 
-  constructor(public value: number, next: ListNode | null = null) {
-    this.next = next;
-  }
+	constructor(
+		public value: number,
+		next: ListNode | null = null,
+	) {
+		this.next = next;
+	}
 }
 
 export function removeKthFromEnd(head: ListNode, k: number): ListNode | null {
-  let fast: ListNode | null = head;
-  let slow: ListNode | null = head;
-  let prev: ListNode | null = null;
+	const dummy = new ListNode(0, head);
+	let fast: ListNode | null = dummy;
+	let slow: ListNode | null = dummy;
 
-  for (let i = 0; i < k; i += 1) {
-    fast = fast?.next ?? null;
-  }
+	for (let i = 0; i < k; i++) {
+		fast = fast?.next ?? null;
+	}
 
-  while (fast) {
-    fast = fast.next;
-    prev = slow;
-    slow = slow?.next ?? null;
-  }
+	/* use fast to find end, know slow is k behind */
+	while (fast?.next) {
+		fast = fast.next;
+		slow = slow?.next ?? null;
+	}
 
-  if (!slow) return head;
-  if (!prev) return head; // incorrect when removing the head
+	const target = slow?.next ?? null;
+	if (target) {
+		slow!.next = target.next;
+	}
 
-  prev.next = slow.next;
-  return head;
+	return dummy.next;
 }
