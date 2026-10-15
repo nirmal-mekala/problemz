@@ -3,7 +3,9 @@
 **Timebox: 15 min**
 
 ## Problem
-Group words that are anagrams of each other, meaning they use the same letters the same number of times. Input words are lowercase a–z.
+
+Group words that are anagrams of each other, meaning they use the same letters
+the same number of times. Input words are lowercase a–z.
 
 Ordering:
 - Groups appear in the order their first word appears in the input.

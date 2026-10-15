@@ -1,15 +1,29 @@
 export function groupAnagrams(words: string[]): string[][] {
-  const groups = new Map<string, Set<string>>();
+	const letterPositionMap: Record<string, number> = {};
+	"abcdefghijklmnopqrstuvwxyz".split("").forEach((letter, index) => {
+		letterPositionMap[letter] = index;
+	});
 
-  for (const word of words) {
-    const key = word.split("").sort().join("");
-    const group = groups.get(key);
-    if (group) {
-      group.add(word);
-    } else {
-      groups.set(key, new Set([word]));
-    }
-  }
+	const resultMap: Record<string, string[]> = {};
 
-  return Array.from(groups.values()).map((group) => Array.from(group));
+	for (let i = 0; i < words.length; i++) {
+		const word = words[i];
+		const arrRepresentationOfWord: number[] = Array.from({ length: 26 }).fill(
+			0,
+		) as number[];
+		for (let j = 0; j < word.length; j++) {
+			const letter = word[j];
+			arrRepresentationOfWord[letterPositionMap[letter]]++;
+		}
+
+		const key = arrRepresentationOfWord.join("");
+
+		if (Array.isArray(resultMap[key])) {
+			resultMap[key].push(word);
+		} else {
+			resultMap[key] = [word];
+		}
+	}
+
+	return Object.values(resultMap);
 }
