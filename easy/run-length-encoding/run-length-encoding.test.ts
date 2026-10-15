@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { decode as workingDecode, encode as workingEncode } from "./working";
+import { decode as workspaceDecode, encode as workspaceEncode } from "./workspace";
 import { decode as solutionDecode, encode as solutionEncode } from "./solution";
 
 const encodeCases = [
@@ -30,9 +30,9 @@ function runDecodeCases(decodeFn: (input: string) => string) {
   });
 }
 
-describe("run-length-encoding (working)", () => {
-  runEncodeCases(workingEncode);
-  runDecodeCases(workingDecode);
+describe("run-length-encoding (workspace)", () => {
+  runEncodeCases(workspaceEncode);
+  runDecodeCases(workspaceDecode);
 });
 
 describe("run-length-encoding (solution)", () => {

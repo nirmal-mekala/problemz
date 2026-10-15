@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { longestUniqueSubstringLength as working } from "./working";
+import { longestUniqueSubstringLength as workspace } from "./workspace";
 import { longestUniqueSubstringLength as solution } from "./solution";
 
 const cases = [
@@ -13,9 +13,9 @@ const cases = [
   { input: "anviaj", expected: 5 }
 ];
 
-describe("longestUniqueSubstringLength (working)", () => {
+describe("longestUniqueSubstringLength (workspace)", () => {
   it.each(cases)("returns correct length: %o", ({ input, expected }) => {
-    expect(working(input)).toBe(expected);
+    expect(workspace(input)).toBe(expected);
   });
 });
 

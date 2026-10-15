@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { minStepsInGrid as working } from "./working";
+import { minStepsInGrid as workspace } from "./workspace";
 import { minStepsInGrid as solution } from "./solution";
 
 const exampleGrid = [
@@ -67,9 +67,9 @@ const cases = [
   }
 ];
 
-describe("minStepsInGrid (working)", () => {
+describe("minStepsInGrid (workspace)", () => {
   it.each(cases)("returns correct steps: %s", ({ grid, start, end, expected }) => {
-    expect(working(grid, start, end)).toBe(expected);
+    expect(workspace(grid, start, end)).toBe(expected);
   });
 });
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { sumOfArray as workingSum } from "./working";
+import { sumOfArray as workspaceSum } from "./workspace";
 import { sumOfArray as solutionSum } from "./solution";
 
 const cases = [
@@ -9,9 +9,9 @@ const cases = [
   { input: [10], expected: 10 }
 ];
 
-describe("sumOfArray (working)", () => {
+describe("sumOfArray (workspace)", () => {
   it.each(cases)("returns the correct sum: %o", ({ input, expected }) => {
-    expect(workingSum(input)).toBe(expected);
+    expect(workspaceSum(input)).toBe(expected);
   });
 });
 

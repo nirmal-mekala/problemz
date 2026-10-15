@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { LockableBinaryTreeNode as WorkingNode } from "./working";
+import { LockableBinaryTreeNode as WorkspaceNode } from "./workspace";
 import { LockableBinaryTreeNode as SolutionNode } from "./solution";
 
 type NodeCtor = new (value: number) => {
@@ -88,8 +88,8 @@ function runCases<T extends NodeCtor>(Ctor: T) {
   });
 }
 
-describe("LockableBinaryTreeNode (working)", () => {
-  runCases(WorkingNode);
+describe("LockableBinaryTreeNode (workspace)", () => {
+  runCases(WorkspaceNode);
 });
 
 describe("LockableBinaryTreeNode (solution)", () => {

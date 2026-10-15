@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { isBalancedBrackets as working } from "./working";
+import { isBalancedBrackets as workspace } from "./workspace";
 import { isBalancedBrackets as solution } from "./solution";
 
 describe("balanced-brackets", () => {
@@ -17,9 +17,9 @@ describe("balanced-brackets", () => {
     { input: "([]))", expected: false, name: "extra closing paren" },
   ];
 
-  describe("working", () => {
+  describe("workspace", () => {
     it.each(cases)("$name (input: $input)", ({ input, expected }) => {
-      expect(working(input)).toBe(expected);
+      expect(workspace(input)).toBe(expected);
     });
   });
 

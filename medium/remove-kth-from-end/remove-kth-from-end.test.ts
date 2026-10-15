@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { ListNode as WorkingNode, removeKthFromEnd as working } from "./working";
+import { ListNode as WorkspaceNode, removeKthFromEnd as workspace } from "./workspace";
 import { ListNode as SolutionNode, removeKthFromEnd as solution } from "./solution";
 
 type NodeCtor = new (value: number, next?: any) => { value: number; next: any };
@@ -52,8 +52,8 @@ function runCases(Ctor: NodeCtor, removeFn: RemoveFn) {
   });
 }
 
-describe("removeKthFromEnd (working)", () => {
-  runCases(WorkingNode, working);
+describe("removeKthFromEnd (workspace)", () => {
+  runCases(WorkspaceNode, workspace);
 });
 
 describe("removeKthFromEnd (solution)", () => {

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { justifyText as working } from "./working";
+import { justifyText as workspace } from "./workspace";
 import { justifyText as solution } from "./solution";
 
 describe("text-justification", () => {
@@ -32,8 +32,8 @@ describe("text-justification", () => {
     }
   };
 
-  it("working passes all cases", () => {
-    runCases(working);
+  it("workspace passes all cases", () => {
+    runCases(workspace);
   });
 
   it("solution passes all cases", () => {
