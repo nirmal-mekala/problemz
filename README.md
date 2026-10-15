@@ -4,7 +4,9 @@ TypeScript coding problems with tests. Each problem lives in a difficulty folder
 
 - `workspace.ts` — intentionally incomplete or incorrect implementation
 - `solution.ts` — correct implementation
-- `*.test.ts` — shared tests that assert correct behavior for both `workspace.ts` and `solution.ts`
+- `*.test.ts` — one shared set of tests asserting correct behavior, run against both files
+
+There is only one set of test cases per problem, and it is never written with `workspace.ts` in mind — it simply asserts correct behavior. `solution.ts` passes all of it; `workspace.ts` fails some of it as a side effect of being incomplete/incorrect, not because the tests are special-cased for it. See `AGENTS.md` for details.
 
 Note: tests and solutions are AI-generated, so take both with a grain of salt.
 
